@@ -188,6 +188,11 @@ export const resetpassword = asyncError(async (req, res, next) => {
   });
 });
 
+
+
+
+
+
 // export const signup = asyncError(async (req, res, next) => {
 //   const { name, email, password, address, city, country, pinCode } = req.body;
 
@@ -221,6 +226,11 @@ export const resetpassword = asyncError(async (req, res, next) => {
 // });
 
 
+
+
+
+
+
 export const signup = asyncError(async (req, res, next) => {
   const { name, email, password } = req.body;
 
@@ -230,29 +240,16 @@ export const signup = asyncError(async (req, res, next) => {
   
 
 
+
   user = await User.create({
+    avatar,
     name,
     email,
     password,
-    
+   
   });
 
   sendToken(user, res, `Registered  Sucessfully`, 201);
 });
 
 
-// export const signup = async (req, res, next) => {
-//   const { name, email, password } = req.body;
-//   const user = await User.create({
-    
-//     name,
-//     email,
-//     password,
-   
-//   });
-  
-//   sendToken(user, res, `Registered  Sucessfully`, 201);
-
-
-  
-// }

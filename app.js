@@ -17,7 +17,7 @@ export const app = express()
 
 // Using Middleware 
 app.use(express.json())
-// app.use(cookieParser())
+app.use(cookieParser())
 app.use(cors({
   credentials:true,
   methods:["GET","POST","PUT","DELETE"],
