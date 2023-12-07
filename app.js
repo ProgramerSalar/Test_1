@@ -45,5 +45,5 @@ app.use('/api/v1/user', user)
 
 
 // using Error Middleware 
-// import { errorMiddleware } from "./middlewares/error.js";
-// app.use(errorMiddleware)
+import { errorMiddleware } from "./middlewares/error.js";
+app.use(errorMiddleware)
