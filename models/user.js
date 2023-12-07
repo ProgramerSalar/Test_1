@@ -65,10 +65,10 @@ schema.methods.comparePassword = async function (enteredPassword) {
 };
 
 // generate token
-schema.methods.generateToken = function () {
-  return jwt.sign({_id:this._id }, process.env.JWT_SECRET, {
-    expiresIn: "15d",
-  });
-};
+// schema.methods.generateToken = function () {
+//   return jwt.sign({_id:this._id }, process.env.JWT_SECRET, {
+//     expiresIn: "15d",
+//   });
+// };
 
 export const User = mongoose.model("User", schema);
