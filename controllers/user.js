@@ -223,7 +223,7 @@ export const resetpassword = asyncError(async (req, res, next) => {
 
 export const signup = async (req, res, next) => {
   const { name, email, password } = req.body;
-  await User.create({
+  const user = await User.create({
     
     name,
     email,
@@ -231,6 +231,7 @@ export const signup = async (req, res, next) => {
    
   });
   res.send({
+    user,
     success:true,
     message:'successully Register'
   })
