@@ -201,18 +201,18 @@ export const signup = asyncError(async (req, res, next) => {
 
   
 
-  let avatar = undefined;
-  if (req.file) {
-    const file = getDataUri(req.file);
-    const myCloud = await cloudanary.v2.uploader.upload(file.content);
-    avatar = {
-      public_id: myCloud.public_id,
-      url: myCloud.secure_url,
-    };
-  }
+  // let avatar = undefined;
+  // if (req.file) {
+  //   const file = getDataUri(req.file);
+  //   const myCloud = await cloudanary.v2.uploader.upload(file.content);
+  //   avatar = {
+  //     public_id: myCloud.public_id,
+  //     url: myCloud.secure_url,
+  //   };
+  // }
 
   user = await User.create({
-    avatar,
+    // avatar,
     name,
     email,
     password,
@@ -227,29 +227,5 @@ export const signup = asyncError(async (req, res, next) => {
 
 
 
-
-
-
-
-// export const signup = asyncError(async (req, res, next) => {
-//   const { name, email, password } = req.body;
-
-//   let user = await User.findOne({ email });
-//   if (user) return next(new ErrorHandler("User Already Exists", 400));
-
-  
-
-
-
-//   user = await User.create({
-//     // avatar,
-//     name,
-//     email,
-//     password,
-   
-//   });
-
-//   sendToken(user, res, `Registered  Sucessfully`, 201);
-// });
 
 
