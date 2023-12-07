@@ -193,7 +193,7 @@ export const resetpassword = asyncError(async (req, res, next) => {
 
 
 
-export const signup = asyncError(async (req, res, next) => {
+export const signup = async (req, res, next) => {
   const { name, email, password } = req.body;
 
   let user = await User.findOne({ email });
@@ -224,7 +224,7 @@ export const signup = asyncError(async (req, res, next) => {
   })
 
   // sendToken(user, res, `Registered  Sucessfully`, 201);
-});
+}
 
 
 
