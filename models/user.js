@@ -21,22 +21,22 @@ const schema = new mongoose.Schema({
     minLength: [6, "Password must be at least 6 characters long"],
     select: false,
   },
-  address: {
-    type: String,
-    required: true,
-  },
-  city: {
-    type: String,
-    required: true,
-  },
-  country: {
-    type: String,
-    required: true,
-  },
-  pinCode: {
-    type: Number,
-    required: true,
-  },
+  // address: {
+  //   type: String,
+  //   required: true,
+  // },
+  // city: {
+  //   type: String,
+  //   required: true,
+  // },
+  // country: {
+  //   type: String,
+  //   required: true,
+  // },
+  // pinCode: {
+  //   type: Number,
+  //   required: true,
+  // },
 
   role: {
     type: String,
@@ -44,10 +44,10 @@ const schema = new mongoose.Schema({
     default: "user",
   },
 
-  avatar: {
-    public_id: String,
-    url: String,
-  },
+  // avatar: {
+  //   public_id: String,
+  //   url: String,
+  // },
   otp: Number,
   otp_expire: Date,
 });
@@ -65,10 +65,10 @@ schema.methods.comparePassword = async function (enteredPassword) {
 };
 
 // generate token
-schema.methods.generateToken = function () {
-  return jwt.sign({_id:this._id }, process.env.JWT_SECRET, {
-    expiresIn: "15d",
-  });
-};
+// schema.methods.generateToken = function () {
+//   return jwt.sign({_id:this._id }, process.env.JWT_SECRET, {
+//     expiresIn: "15d",
+//   });
+// };
 
 export const User = mongoose.model("User", schema);

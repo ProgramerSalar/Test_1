@@ -16,17 +16,19 @@ import { singleUpload } from "../middlewares/multer.js";
 const router = express.Router();
 
 router.post("/login", login);
-router.post("/signup", singleUpload, signup);
-router.get("/me", isAuthenticated, getMyProfile);
-router.get("/logout", isAuthenticated, logout);
+// router.post("/signup", singleUpload, signup);
+router.post("/signup", signup);
+// router.get("/me", isAuthenticated, getMyProfile);
+// router.get("/w",  getMyProfile);
+// router.post("/logout", isAuthenticated, logout);
 
-// update Routes
-router.put("/updateprofile", isAuthenticated, updateProfile);
-router.put("/changepassword", isAuthenticated, changePassword);
-router.put("/updatepic", isAuthenticated,singleUpload, updatePic);
+// // update Routes
+// router.put("/updateprofile", isAuthenticated, updateProfile);
+// router.put("/changepassword", isAuthenticated, changePassword);
+// router.put("/updatepic", isAuthenticated,singleUpload, updatePic);
 
 
-// forget Password and Rest Password 
-router.route("/forgetpassword").post(forgetpassword).put(resetpassword)
+// // forget Password and Rest Password 
+// router.route("/forgetpassword").post(forgetpassword).put(resetpassword)
 
 export default router;
