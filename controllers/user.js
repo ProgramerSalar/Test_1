@@ -218,8 +218,12 @@ export const signup = asyncError(async (req, res, next) => {
     password,
     
   });
+  res.status(400).json({
+    success:true,
+    message:'Register Successfully'
+  })
 
-  sendToken(user, res, `Registered  Sucessfully`, 201);
+  // sendToken(user, res, `Registered  Sucessfully`, 201);
 });
 
 
