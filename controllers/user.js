@@ -194,7 +194,7 @@ export const resetpassword = asyncError(async (req, res, next) => {
 
 
 export const signup = asyncError(async (req, res, next) => {
-  const { name, email, password, address, city, country, pinCode } = req.body;
+  const { name, email, password } = req.body;
 
   let user = await User.findOne({ email });
   if (user) return next(new ErrorHandler("User Already Exists", 400));
@@ -216,10 +216,7 @@ export const signup = asyncError(async (req, res, next) => {
     name,
     email,
     password,
-    address,
-    city,
-    country,
-    pinCode,
+    
   });
 
   sendToken(user, res, `Registered  Sucessfully`, 201);

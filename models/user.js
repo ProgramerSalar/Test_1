@@ -21,28 +21,28 @@ const schema = new mongoose.Schema({
     minLength: [6, "Password must be at least 6 characters long"],
     select: false,
   },
-  address: {
-    type: String,
-    required: true,
-  },
-  city: {
-    type: String,
-    required: true,
-  },
-  country: {
-    type: String,
-    required: true,
-  },
-  pinCode: {
-    type: Number,
-    required: true,
-  },
+  // address: {
+  //   type: String,
+  //   required: true,
+  // },
+  // city: {
+  //   type: String,
+  //   required: true,
+  // },
+  // country: {
+  //   type: String,
+  //   required: true,
+  // },
+  // pinCode: {
+  //   type: Number,
+  //   required: true,
+  // },
 
-  role: {
-    type: String,
-    enum: ["admin", "user"],
-    default: "user",
-  },
+  // role: {
+  //   type: String,
+  //   enum: ["admin", "user"],
+  //   default: "user",
+  // },
 
   avatar: {
     public_id: String,
