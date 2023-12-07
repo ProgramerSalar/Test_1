@@ -242,7 +242,7 @@ export const signup = asyncError(async (req, res, next) => {
 
 
   user = await User.create({
-    avatar,
+    // avatar,
     name,
     email,
     password,
