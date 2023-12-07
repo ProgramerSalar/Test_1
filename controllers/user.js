@@ -221,22 +221,38 @@ export const resetpassword = asyncError(async (req, res, next) => {
 // });
 
 
-export const signup = async (req, res, next) => {
+export const signup = asyncError(async (req, res, next) => {
   const { name, email, password } = req.body;
-  const user = await User.create({
-    
+
+  let user = await User.findOne({ email });
+  if (user) return next(new ErrorHandler("User Already Exists", 400));
+
+  
+
+
+  user = await User.create({
     name,
     email,
     password,
-   
+    
   });
-  // res.send({
-  //   user,
-  //   success:true,
-  //   message:'successully Register'
-  // })
+
   sendToken(user, res, `Registered  Sucessfully`, 201);
+});
+
+
+// export const signup = async (req, res, next) => {
+//   const { name, email, password } = req.body;
+//   const user = await User.create({
+    
+//     name,
+//     email,
+//     password,
+   
+//   });
+  
+//   sendToken(user, res, `Registered  Sucessfully`, 201);
 
 
   
-}
+// }
